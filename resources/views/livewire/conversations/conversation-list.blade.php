@@ -4,7 +4,7 @@
 @else
     @foreach($conversations as $conversation)
 
-       <a href="#" class=" block bg-white p-4 mb-2">
+       <a href="{{route('conversation.show', $conversation->uuid)}}" class=" block bg-white p-4 mb-2">
             <div class="font-bold text-muted hover:underline">
                 @foreach($conversation->users as $user)
                 

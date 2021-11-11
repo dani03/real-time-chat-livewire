@@ -25,3 +25,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/conversations', [ConversationController::class, 'index'])->middleware(['auth'])->name('conversations.index');
+Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->middleware(['auth'])->name('conversation.show');
