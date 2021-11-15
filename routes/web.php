@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/conversations', [ConversationController::class, 'index'])->middleware(['auth'])->name('conversations.index');
-Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->middleware(['auth'])->name('conversation.show');
+Route::get('/conversations/{conversation:uuid}', [ConversationController::class, 'show'])->middleware(['auth'])->name('conversation.show');

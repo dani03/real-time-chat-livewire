@@ -7,8 +7,9 @@ use Livewire\Component;
 
 class ConversationList extends Component
 {
-    public $conversations = "";
-    public function mount( Collection $conversations){
+    public $conversations;
+    public function mount(Collection $conversations)
+    {
         $this->conversations = $conversations;
     }
     public function render()
