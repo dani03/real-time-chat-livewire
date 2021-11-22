@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Conversations;
 
+use App\Events\conversations\MessageAddEvent;
 use App\Models\Conversation;
 use Livewire\Component;
 
@@ -36,6 +37,9 @@ class ConversationReply extends Component
                 ]
             );
         }
+        //on creer un evenement et on lui passe le message precedement creer
+        broadcast(new MessageAddEvent($message))->toOthers();
+
         $this->emit('message-created', $message->id);
         $this->body = "";
     }

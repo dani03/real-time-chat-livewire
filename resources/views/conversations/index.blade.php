@@ -13,7 +13,6 @@
                     <div class="p-2 bg-white border-b border-gray-200">
                         listes de conversations
                         @livewire('conversations.conversation-list', ['conversations' => $conversations])
-
                     </div>
                 </div>
             </div>
