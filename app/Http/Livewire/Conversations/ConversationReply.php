@@ -27,8 +27,16 @@ class ConversationReply extends Component
         $this->conversation->update([
             'last_message_at' => now()
         ]);
-        $this->emit('message-created', $message->id);
 
+        foreach ($this->conversation->others as $user) {
+            $user->conversations()->updateExistingPivot(
+                $this->conversation,
+                [
+                    'read_at' => null
+                ]
+            );
+        }
+        $this->emit('message-created', $message->id);
         $this->body = "";
     }
 
