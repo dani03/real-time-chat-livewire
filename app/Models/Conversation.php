@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
 {
+    protected $fillable = ['last_message_at'];
+    protected $dates = [
+        'last_message_at'
+    ];
     use HasFactory;
 
     public function users()

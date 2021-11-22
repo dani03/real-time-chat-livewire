@@ -11,15 +11,14 @@ class ConversationController extends Controller
     public function index(Request $request)
     {
 
-        $conversations  = $request->user()->conversations;
+        $conversations  = $request->user()->conversations()->orderBy('last_message_at', 'desc')->get();
         // dd($conversations);
         return view('conversations.index', compact('conversations'));
     }
 
     public function Show(Conversation $conversation, Request $request)
     {
-
-        $conversations  = auth()->user()->conversations;
+        $conversations  = $request->user()->conversations()->orderBy('last_message_at', 'desc')->get();
         return view('conversations.show', compact('conversation', 'conversations'));
     }
 }

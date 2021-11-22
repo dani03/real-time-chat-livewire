@@ -14,7 +14,7 @@
                 </div>
 
                 <p class="text-muted mb-0 truncate flex align-center hover:underline">
-                    <span class="truncate">{{ $conversation->messages->first()->body }} </span>
+                    <span class="truncate">{{ $conversation->messages->first()->body ?? 'pas encore de message' }} </span>
                 </p>
             </a>
         @endforeach
