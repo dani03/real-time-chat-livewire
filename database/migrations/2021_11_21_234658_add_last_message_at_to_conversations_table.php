@@ -14,7 +14,7 @@ class AddLastMessageAtToConversationsTable extends Migration
     public function up()
     {
         Schema::table('conversations', function (Blueprint $table) {
-            $table->timestamp('last_message_at');
+            $table->timestamp('last_message_at')->nullable();
         });
     }
 

@@ -47,7 +47,11 @@ class User extends Authenticatable
     {
         return new UserPresenter($this);
     }
-
+    public function inConversation($id)
+    {
+        return
+            $this->conversations->contains('id', $id);
+    }
 
     public function conversations()
     {

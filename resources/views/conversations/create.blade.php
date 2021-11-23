@@ -4,8 +4,8 @@
             {{ __('Conversations') }}
         </h2>
     </x-slot>
-
-    <div class=" inline-flex w-screen justify-around">
+    @include('conversations.partials._header')
+    <div class=" inline-flex w-full justify-around">
 
         <div class="py-8 w-80">
             <div class="max-w-7xl  mx-auto sm:px-6 lg:px-8">
@@ -14,10 +14,14 @@
                         listes de conversations
                         @livewire('conversations.conversation-list', ['conversations' => $conversations])
                     </div>
+
                 </div>
             </div>
         </div>
-        @include('conversations.partials._header')
+
+        <div class="w-1/3">
+            <livewire:conversations.conversation-create />
+        </div>
 
     </div>
 </x-app-layout>

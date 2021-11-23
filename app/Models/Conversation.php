@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Conversation extends Model
 {
-    protected $fillable = ['last_message_at'];
+    protected $fillable = ['last_message_at', 'uuid'];
     protected $dates = [
         'last_message_at'
     ];
@@ -18,6 +18,7 @@ class Conversation extends Model
     {
         return $this->belongsToMany(User::class)
             ->withPivot('read_at')
+            ->withTimestamps()
             ->oldest();
     }
     public function others()

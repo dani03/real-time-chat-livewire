@@ -4,6 +4,7 @@
             {{ __('Conversations') }}
         </h2>
     </x-slot>
+    @include('conversations.partials._header')
 
     <div class=" inline-flex w-screen justify-around">
 
@@ -27,7 +28,8 @@
                             @livewire('conversations.conversation-users', ['users' => $conversation->users])
                         </div>
                         <div class="p-4 border-b-2 h-60 max-h-60 overflow-y-scroll " style="">
-                            @livewire('conversations.conversation-messages', ['conversation' => $conversation, 'messages' => $conversation->messages])
+                            @livewire('conversations.conversation-messages', ['conversation' => $conversation,
+                            'messages' => $conversation->messages])
                         </div>
                         <div class="p-4 border-t-0">
                             @livewire('conversations.conversation-reply', ['conversation' => $conversation])
